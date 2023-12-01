@@ -3,12 +3,14 @@ from h5py import File
 from scipy.io import savemat
 from stabilization_regulator import regulator
 
-with File('./rand_stabilisation.mat', 'r') as rs:
-    P = np.array(rs.get('P')).transpose()
-    Q = np.array(rs.get('Q')).transpose()
-    lamdas = np.array(rs.get('lamdas'))[:, 0].transpose()
+P = np.array([[0, 0, 0, 1],[0, -1, 1, 0],[ 1, -1, 0, 0],[ 1, 0, 0, 0]])
+Q = np.transpose(np.array([[0, 0, 1, 0], [1, 0, 0, 0]]))
+lamdas = np.array([-1, -1, -1, -1])
 
 regulator = regulator(P, Q, lamdas)
-mdicU = {'C': regulator}
-savemat('./regulator.mat', mdicU)
+mdicU = {'C': regulator,
+         'P' : P,
+         'Q' : Q,
+         'lamdas': lamdas}
+savemat('./stabilization.mat', mdicU)
 print(regulator)
