@@ -72,7 +72,7 @@ def split_into_blocks(P0, ks):
     
     return P0
 
-def stabilization(P, Q, lamdas):    
+def regulator(P, Q, lamdas):    
     n, r = Q.shape
 
     # print(dim)
