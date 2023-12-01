@@ -1,4 +1,4 @@
-randP = randi([-10, 10], [4, 4], "uint8")
+P = randi([-10, 10], [4, 4], "uint8")
 Q = transpose([ 0 0 1 0; 1 0 0 0 ])
 lamdas = [-1 -1 -1 -1]
 
@@ -6,9 +6,9 @@ lamdas = [-1 -1 -1 -1]
 % Q = transpose([0 0 1])
 % lamdas = [-1 -2 -3]
 
-randP = [0 0 0 1; 0 -1 1 0; 1 -1 0 0; 1 0 0 0]
+P = [0 0 0 1; 0 -1 1 0; 1 -1 0 0; 1 0 0 0]
 Q = transpose([0 0 1 0; 1 0 0 0])
 lamdas = [-1 -1 -1 -1]
 
 
-save rand_stabilisation.mat randP Q lamdas -v7.3
+save rand_stabilisation.mat P Q lamdas -v7.3
