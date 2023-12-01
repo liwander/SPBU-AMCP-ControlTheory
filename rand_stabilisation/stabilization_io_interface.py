@@ -10,5 +10,5 @@ with File('./rand_stabilisation.mat', 'r') as rs:
 
 regulator = stabilization(P, Q, lamdas)
 mdicU = {'C': regulator}
-savemat('./stabilizating_control.mat', mdicU)
+savemat('./regulator.mat', mdicU)
 print(regulator)
