@@ -86,10 +86,15 @@ def regulator(P, Q, lamdas):
     P0_block = split_into_blocks(P0, ks)
     T, c = construct_matrix_T(P0_block, lamdas)
 
+    Q0 = np.linalg.inv(K) @ Q
+    Pbar = np.linalg.inv(T) @ P0 @ T
+    Qbar = np.linalg.inv(T) @ Q
     regulator = c @ np.linalg.inv(K @ T)
 
     return {'c': c,
-            'M': regulator,
+            'Cbar': regulator,
             'K': K,
             'P0': P0,
-            'T': T}
+            'Q0': Q0,
+            'T': T,
+            'Pbar': Pbar}
